@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import { Button } from "@blueprintjs/core";
 import logo from './logo.svg';
 import './App.css';
 import cms from './sanityCms';
@@ -39,6 +40,9 @@ function App() {
         >
           Learn React
         </a>
+		<Button intent="primary" onClick={() => undefined}>
+			A Blueprint Button
+		</Button>
       </header>
     </div>
   );
