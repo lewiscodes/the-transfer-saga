@@ -1,8 +1,29 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import cms from './sanityCms';
+
+// https://thetransfersaga.sanity.studio/
 
 function App() {
+  useEffect(() => {
+    const getData = async () => {
+      try {
+        const data = await cms.fetch(`*[_type == 'transfer']{
+          _id,
+          player->,
+          toClub,
+          price
+        }`);
+        console.log(data); //eslint-disable-line
+      } catch (error) {
+        console.log(error); //eslint-disable-line        
+      }
+    }
+
+    getData();
+  }, []);
+
   return (
     <div className="App">
       <header className="App-header">
