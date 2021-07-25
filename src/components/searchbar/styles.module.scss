@@ -1,0 +1,10 @@
+.searchBar {
+    width: 100%;
+    min-width: 300px;
+}
+
+@media (min-width: 450px) {
+    .searchBar {
+        width: 33%;
+    }
+}
