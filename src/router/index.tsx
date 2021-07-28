@@ -1,41 +1,28 @@
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Home from '../pages/home';
-import { useEffect } from 'react';
-import cms from '../sanityCms';
-import Header from '../components/header';
+import Header from '../atoms/header';
+import Player from '../pages/player';
+import Club from '../pages/club';
 
 export enum ERoutes {
     HOME = '/',
-    THE_TRANSFER_SAGA = '/the-transfer-saga'
+    THE_TRANSFER_SAGA = '/the-transfer-saga',
+    PLAYER = '/player',
+    CLUB = '/club',
+    SOURCE = '/source'
 }
 
 // https://thetransfersaga.sanity.studio/
 
 const AppRouter = (): JSX.Element => {
-    useEffect(() => {
-        const getData = async () => {
-            try {
-                const data = await cms.fetch(`*[_type == 'transfer']{
-                    _id,
-                    player->,
-                    toClub,
-                    price
-                }`);
-                
-                console.log(data); //eslint-disable-line
-            } catch (error) {
-                console.log(error); //eslint-disable-line        
-            }
-        }
-    
-        getData();
-    }, []);
-
     return (
         <Router>
             <Header />
             <Switch>
-                <Route exact path={ERoutes.THE_TRANSFER_SAGA} component={Home} />
+                <Route path={`${ERoutes.SOURCE}/sourceId`} />
+                <Route path={`${ERoutes.CLUB}/:clubId`} component={Club} />
+                <Route path={`${ERoutes.PLAYER}/:playerId`} component={Player} />
+                <Route path={ERoutes.THE_TRANSFER_SAGA} component={Home} />
                 <Route exact path={ERoutes.HOME} component={Home} />
             </Switch>
         </Router>

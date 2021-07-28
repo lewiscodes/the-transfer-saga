@@ -13,6 +13,16 @@ const clubSchema =  {
             name: 'league',
             type: 'reference',
             to: [{ type: 'leagues' }]
+        },
+        {
+            title: 'Primary Color',
+            name: 'primaryColor',
+            type: 'string'
+        },
+        {
+            title: 'Secondary Color',
+            name: 'secondaryColor',
+            type: 'string'
         }
     ]
 }

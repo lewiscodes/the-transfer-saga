@@ -9,10 +9,10 @@ interface ISectionProps {
 const Section = (props: PropsWithChildren<ISectionProps>): JSX.Element => {
     return (
         <Card className={styles.card}>
-            <>
-                <h3 className={styles.heading}>{props.title}</h3>
-            </>
-            {props.children}
+            <h3 className={styles.heading}>{props.title}</h3>
+            <div>
+                {props.children}
+            </div>
         </Card>
     );
 }

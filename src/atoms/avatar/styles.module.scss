@@ -1,0 +1,22 @@
+.avatar {
+    cursor: pointer;
+    border: 3px solid black;
+    background-color: white;
+    height: 50px;
+    width: 50px;
+    border-radius: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &_square {
+        border-radius: 0;
+    }
+
+    span {
+        font-size: 18px;
+        font-weight: bold;
+        text-decoration: none;
+        color: black;
+    }
+}
