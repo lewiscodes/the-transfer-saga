@@ -5,7 +5,8 @@ import cms from '../sanityCms';
 import Header from '../components/header';
 
 export enum ERoutes {
-    HOME = '/'
+    HOME = '/',
+    THE_TRANSFER_SAGA = '/the-transfer-saga'
 }
 
 // https://thetransfersaga.sanity.studio/
@@ -34,6 +35,7 @@ const AppRouter = (): JSX.Element => {
         <Router>
             <Header />
             <Switch>
+                <Route exact path={ERoutes.THE_TRANSFER_SAGA} component={Home} />
                 <Route exact path={ERoutes.HOME} component={Home} />
             </Switch>
         </Router>
